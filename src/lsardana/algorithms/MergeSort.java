@@ -1,4 +1,4 @@
-package lsardana.dsAlgoPractice;
+package lsardana.algorithms;
 
 /**
  * 

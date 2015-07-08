@@ -1,4 +1,8 @@
-package lsardana.dsAlgoPractice;
+package lsardana.algorithms;
+
+/**
+ * @author lokesh.sardana
+ */
 
 import java.util.Arrays;
 
