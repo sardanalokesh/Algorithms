@@ -3,19 +3,19 @@ package lsardana.algorithms;
  * @author lokesh.sardana
  */
 public class Coordinates {
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 	
-	public Coordinates(int xValue, int yValue) {
+	public Coordinates(double xValue, double yValue) {
 		this.x = xValue;
 		this.y = yValue;
 	}
 	
-	public int getX() {
+	public double getX() {
 		return this.x;
 	}
 	
-	public int getY() {
+	public double getY() {
 		return this.y;
 	}
 	

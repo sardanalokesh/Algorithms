@@ -2,8 +2,6 @@ package lsardana.algorithms;
 /**
  * @author lokesh.sardana
  * 
- * Work in Progress
- * 
  */
 import java.util.ArrayList;
 
@@ -34,8 +32,18 @@ public class ClosestPairPoints {
 			System.arraycopy(pY, qY.length, rY, 0, rY.length);
 			CoordinatePair pair1 = closestPair(qX, qY);
 			CoordinatePair pair2 = closestPair(rX, rY);
-			double d1 = pair1.getEuclideanDistance();
-			double d2 = pair2.getEuclideanDistance();
+			double d1;
+			double d2;
+			if (pair1 != null) {
+				d1 = pair1.getEuclideanDistance();
+			} else {
+				d1 = Double.POSITIVE_INFINITY;
+			}
+			if (pair2 != null) {
+				d2 = pair2.getEuclideanDistance();
+			} else {
+				d2 = Double.POSITIVE_INFINITY;
+			}
 			double delta = Math.min(d1, d2);
 			CoordinatePair pair3 = closestSplitPair(pX, pY, delta);
 			return getBestPair(pair1, pair2, pair3);
@@ -45,7 +53,7 @@ public class ClosestPairPoints {
 	private CoordinatePair closestSplitPair(Coordinates[] pX, Coordinates[] pY, double delta) {
 		double best = delta;
 		CoordinatePair bestPair = null;
-		int xBar = pX[(int)Math.ceil(pX.length/2.0) - 1].getX();
+		double xBar = pX[(int)Math.ceil(pX.length/2.0) - 1].getX();
 		ArrayList<Coordinates> sY = new ArrayList<Coordinates>();
 		for (Coordinates c : pY) {
 			if (c.getX() > xBar - delta && c.getX() < xBar + delta) {
@@ -65,9 +73,24 @@ public class ClosestPairPoints {
 	}
 	
 	private CoordinatePair getBestPair(CoordinatePair pair1, CoordinatePair pair2, CoordinatePair pair3) {
-		double d1 = pair1.getEuclideanDistance();
-		double d2 = pair2.getEuclideanDistance();
-		double d3 = pair3.getEuclideanDistance();
+		double d1;
+		double d2;
+		double d3;
+		if (pair1 != null) {
+			d1 = pair1.getEuclideanDistance();
+		} else {
+			d1 = Double.POSITIVE_INFINITY;
+		}
+		if (pair2 != null) {
+			d2 = pair2.getEuclideanDistance();
+		} else {
+			d2 = Double.POSITIVE_INFINITY;
+		}
+		if (pair3 != null) {
+			d3 = pair3.getEuclideanDistance();
+		} else {
+			d3 = Double.POSITIVE_INFINITY;
+		}
 		
 		if (d1 < d2 && d1 < d3)
 			return pair1;
