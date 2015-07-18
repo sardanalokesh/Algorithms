@@ -10,10 +10,10 @@ public class InversionsTest {
 
 	public static void main(String[] args) {
 		
-		int[] example1 = {1,3,5,2,4,6};
-		int[] example2 = {1,2,3,4,5,6};
-		int[] example3 = {8,12,3,10,15};
-		int[] example4 = {20,2,5,4,10,3,18};
+		long[] example1 = {1,3,5,2,4,6};
+		long[] example2 = {1,2,3,4,5,6};
+		long[] example3 = {8,12,3,10,15};
+		long[] example4 = {20,2,5,4,10,3,18};
 		
 		Inversions inv1 = new Inversions(example1);
 		Inversions inv2 = new Inversions(example2);

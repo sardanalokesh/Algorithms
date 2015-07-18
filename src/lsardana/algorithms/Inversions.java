@@ -11,29 +11,29 @@ package lsardana.algorithms;
 
 public class Inversions {
 	
-		private int[] inputArray;
+		private long[] inputArray;
 		private InversionResultSet finalResult;
 	
-		public Inversions(int[] array) {
+		public Inversions(long[] array) {
 			inputArray = array;
 			finalResult = sortAndCount(inputArray);
 		}
-	
-		public int getInversionCount() {
+
+		public long getInversionCount() {
 			return finalResult.getInversionCount();
 		}
 		
-		public int[] getSortedArray() {
+		public long[] getSortedArray() {
 			return finalResult.getArray();
 		}
 
-		private InversionResultSet sortAndCount(int[] inputArray) {
-			int inputSize = inputArray.length;
+		private InversionResultSet sortAndCount(long[] inputArray) {
+			long inputSize = inputArray.length;
 			if (inputSize <= 1)
 				return new InversionResultSet(inputArray, 0);
 			else {
-				int[] firstHalf = new int[(int) Math.ceil(inputSize/2.0)];
-				int[] secondHalf = new int[(int) Math.floor(inputSize/2.0)];
+				long[] firstHalf = new long[(int) Math.ceil(inputSize/2.0)];
+				long[] secondHalf = new long[(int) Math.floor(inputSize/2.0)];
 				System.arraycopy(inputArray, 0, firstHalf, 0, firstHalf.length);
 				System.arraycopy(inputArray, firstHalf.length, secondHalf, 0, secondHalf.length);
 				InversionResultSet firstHalfResultSet = sortAndCount(firstHalf);
@@ -44,10 +44,10 @@ public class Inversions {
 		}
 		
 		private InversionResultSet mergeAndCountSplitInversions(InversionResultSet firstHalf, InversionResultSet secondHalf) {
-			int inversionCount = firstHalf.getInversionCount() + secondHalf.getInversionCount();
-			int[] firstHalfArray = firstHalf.getArray();
-			int[] secondHalfArray = secondHalf.getArray();
-			int[] sortedMergedArray = new int[firstHalfArray.length + secondHalfArray.length];
+			long inversionCount = firstHalf.getInversionCount() + secondHalf.getInversionCount();
+			long[] firstHalfArray = firstHalf.getArray();
+			long[] secondHalfArray = secondHalf.getArray();
+			long[] sortedMergedArray = new long[firstHalfArray.length + secondHalfArray.length];
 			int i = 0;
 			int j = 0;
 			int k = 0;
@@ -75,19 +75,19 @@ public class Inversions {
 }
 
 final class InversionResultSet {
-	private int inversionCount;
-	private int[] array;
+	private long inversionCount;
+	private long[] array;
 	
-	public InversionResultSet(int[] arry, int count) {
+	public InversionResultSet(long[] arry, long count) {
 		inversionCount = count;
 		array = arry;
 	}
 	
-	public int getInversionCount() {
+	public long getInversionCount() {
 		return inversionCount;
 	}
 	
-	public int[] getArray() {
+	public long[] getArray() {
 		return array;
 	}
 }
