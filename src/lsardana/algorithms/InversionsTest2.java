@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class InversionsTest2 {
 
@@ -22,6 +20,7 @@ public class InversionsTest2 {
 				inputArray[index] = Integer.parseInt(line);
 				index++;
 			}
+			br.close();
 			//System.out.println(Arrays.toString(inputArray));
 			Inversions inv1 = new Inversions(inputArray);
 			//System.out.println(Arrays.toString(inv1.getSortedArray()));

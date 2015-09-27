@@ -1,5 +1,6 @@
 package lsardana.algorithms;
 
+
 public class MyLLNode {
 	
 	private MyLLNode next;
@@ -26,5 +27,4 @@ public class MyLLNode {
 	public void setValue(Object value) {
 		this.value = value;
 	}
-
 }
